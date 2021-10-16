@@ -5,7 +5,7 @@
 //   }
 // }
 
-const array = [5, 6, 9, 2, 3];
+// const array = [5, 6, 9, 2, 3];
 
 // let nodo1 = new Node(5);
 
@@ -31,26 +31,40 @@ const array = [5, 6, 9, 2, 3];
 
 // console.log(myList);
 
-//crear una lista a partir del array
-
 //crear una lista
 
 //1.creo la clase de cada node o item
 class LinkedListItem {
-  constructor(value, next) {
+  constructor(value) {
     this.value = value;
-    this.next = next;
+    this.next = null;
   }
 }
 
 //2.creo la lista que guardará el primer elemento de la lista, apuntando a null
 class LinkedList {
-  constructor() {
-    this.head = null;
+  constructor(head = null) {
+    this.head = head;
   }
 }
-let myNewItem = new LinkedListItem(3);
 
-let myNewList = new LinkedList(myNewItem);
+//crear una lista a partir del array
+
+//1.creo lista vacía (un head apuntando a null)
+const myNewList = new LinkedList();
+
+//recorro el array
+//ojo, for creo los nodos que todos apuntan a null
+const array = [5, 6, 9, 2, 3];
+//creo un primer nodo (array[0]) y a partir de ahí luego hago el bucle a partir i=1
+let nodeAux = new LinkedListItem(array[0]);
+myNewList.head = nodeAux;
+let lastItem = nodeAux;
+
+for (i = 1; i < array.length; i++) {
+  let nodeAux = new LinkedListItem(array[i]);
+  lastItem.next = nodeAux;
+  lastItem = nodeAux;
+}
 
 console.log(myNewList);
