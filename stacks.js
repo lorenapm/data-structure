@@ -19,6 +19,14 @@ class Stack {
     //paso 2: apunto el top al nuevo item
     this.top = aux;
   }
+
+  pop() {
+    if (this.top !== null) {
+      this.top = this.top.prev;
+    } else {
+      console.log("Stack is empty");
+    }
+  }
 }
 
 let myStack = new Stack();
