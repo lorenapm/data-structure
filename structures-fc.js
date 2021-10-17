@@ -34,6 +34,14 @@ class LinkedList {
     }
     return counter;
   }
+
+  //agregar elemento lista vacía
+  push(element) {
+    if (this.head === null) {
+      let nodeAux = new LinkedListItem(element);
+      this.head = nodeAux;
+    }
+  }
 }
 
 //INICIALIZAR LA LISTA RECORRIENDO UN ARRAY
