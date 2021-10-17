@@ -40,7 +40,26 @@ class LinkedList {
     if (this.head === null) {
       let nodeAux = new LinkedListItem(element);
       this.head = nodeAux;
+    } else {
+      //si la lista no está vacía
+      let nodeAux = new LinkedListItem(element);
     }
+  }
+
+  //encuentro el último elemento (apunta a null)
+  getLastItem() {
+    //creo puntero que apunte a la cabeza lista
+    let aux = this.head;
+    if (aux === null) {
+      return null;
+    }
+    //mientras aux.next apunte a un valor distinto de null...
+    while (aux.next !== null) {
+      //enconces avanzo
+      aux = aux.next;
+    }
+    //hasta dar con null, entonces retorno aux
+    return aux;
   }
 }
 
