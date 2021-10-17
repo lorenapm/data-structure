@@ -46,6 +46,16 @@ class Stack {
       aux = aux.prev;
     }
   }
+
+  length() {
+    let aux = this.top;
+    let counter = 0;
+    while (aux !== null) {
+      counter++;
+      aux = aux.prev;
+    }
+    return counter;
+  }
 }
 
 let myStack = new Stack();
@@ -56,3 +66,4 @@ console.log(myStack.peek());
 myStack.pop();
 console.log(myStack.peek());
 console.log(myStack.isEmpty());
+console.log(myStack.length());
