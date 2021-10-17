@@ -68,3 +68,16 @@ for (i = 1; i < array.length; i++) {
 }
 
 console.log(myNewList);
+
+//recorrer la lista y mostrarla o imprimirla
+function printList(myNewList) {
+  //1. creo un puntero auxiliar y lo apunto a head de la lista
+  let aux = myNewList.head;
+  //2.la recorro con un while: condición: recórrela hasta que llegues al final (es decir, hasta que next apunte a null)
+  //3. AVANCE: le digo que el puntero auxiliar es = aux.next
+  while (aux.next !== null) {
+    console.log(aux.value);
+    aux = aux.next;
+  }
+}
+console.log(printList(myNewList));
