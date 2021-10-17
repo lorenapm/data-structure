@@ -56,11 +56,20 @@ class Stack {
     }
     return counter;
   }
+  //¿tiene el elemento?
+  hasElement(element) {
+    let aux = this.top;
+    while (aux !== null && aux.data !== element) {
+      aux = aux.prev;
+    }
+    return aux !== null;
+  }
 }
 
 let myStack = new Stack();
 myStack.push(3);
 myStack.push(7);
+console.log(myStack.hasElement(3));
 console.log(myStack.print());
 console.log(myStack.peek());
 myStack.pop();
