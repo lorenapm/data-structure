@@ -1,8 +1,8 @@
 //crear nodo de stack
 
 class StackItem {
-  constructor(value) {
-    this.value = value;
+  constructor(data) {
+    this.data = data;
     this.prev = null;
   }
 }
@@ -32,11 +32,27 @@ class Stack {
       console.log("Stack is empty");
     }
   }
+
+  isEmpty() {
+    return this.top === null;
+  }
+
+  print() {
+    //1. creo puntero auxiliar (para recorrer stack) que apunte a top
+    let aux = this.top;
+    //mientras aux sea distinto de null tendré nodos para imprimir
+    while (aux !== null) {
+      console.log(aux.data);
+      aux = aux.prev;
+    }
+  }
 }
 
 let myStack = new Stack();
 myStack.push(3);
 myStack.push(7);
+console.log(myStack.print());
 console.log(myStack.peek());
 myStack.pop();
 console.log(myStack.peek());
+console.log(myStack.isEmpty());
