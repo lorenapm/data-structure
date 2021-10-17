@@ -11,6 +11,11 @@ class Stack {
   constructor() {
     this.top = null;
   }
+
+  peek() {
+    return this.top;
+  }
+
   push(element) {
     //creo un nodo(puntero aux apunta al element-value y el prev al null)
     let aux = new StackItem(element);
@@ -30,3 +35,8 @@ class Stack {
 }
 
 let myStack = new Stack();
+myStack.push(3);
+myStack.push(7);
+console.log(myStack.peek());
+myStack.pop();
+console.log(myStack.peek());
