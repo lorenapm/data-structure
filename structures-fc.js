@@ -38,11 +38,16 @@ class LinkedList {
   //agregar elemento lista vacía
   push(element) {
     if (this.head === null) {
+      //creo nuevo nodo y le digo que es el head de mi lista
       let nodeAux = new LinkedListItem(element);
       this.head = nodeAux;
     } else {
-      //si la lista no está vacía
+      //si la lista no está vacía: creo nuevo nodo
       let nodeAux = new LinkedListItem(element);
+      //busco el elemento final de la lista
+      let lastItem = this.getLastItem();
+      //apunto el elemento final al nuevo nodo
+      lastItem.next = nodeAux;
     }
   }
 
