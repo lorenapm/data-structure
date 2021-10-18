@@ -1,6 +1,6 @@
 //crear nodo de stack
 
-class StackItem {
+class Node {
   constructor(data) {
     this.data = data;
     this.prev = null;
@@ -18,7 +18,7 @@ class Stack {
 
   push(element) {
     //creo un nodo(puntero aux apunta al element-value y el prev al null)
-    let aux = new StackItem(element);
+    let aux = new Node(element);
     //apunto al nodo anterior
     aux.prev = this.top;
     //paso 2: apunto el top al nuevo item
