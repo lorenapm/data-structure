@@ -33,11 +33,16 @@ const balanced = (input) => {
       stack.push(char);
     }
     if (closers.includes(char)) {
-      //si es de cierre, lo comparamos con el último(primero hay que sacarlo)
-      let last = stack.pop();
-      //el de apertura (last) tiene que ser igual al cierre del que estoy viendo. Si no son iguales, doy por terminada con false
-      if (relation[last] !== char) {
+      //primero, tenemos que decirle que solo avance si la pila no está vacía(no hacer pop a una pila vacía)
+      if (stack.isEmpty()) {
         return false;
+      } else {
+        //si es de cierre, lo comparamos con el último(primero hay que sacarlo)
+        let last = stack.pop();
+        //el de apertura (last) tiene que ser igual al cierre del que estoy viendo. Si no son iguales, doy por terminada con false
+        if (relation[last] !== char) {
+          return false;
+        }
       }
     }
   }
@@ -49,3 +54,6 @@ console.log(test1, "=>", balanced(test1));
 
 let test2 = "This a test (detailing [unbalanced brackets)";
 console.log(test2, "=>", balanced(test2));
+
+let test3 = "This } a test (detailing [unbalanced brackets)";
+console.log(test3, "=>", balanced(test3));
