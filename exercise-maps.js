@@ -9,7 +9,20 @@
  */
 
 const wordFrequency = (text) => {
-  // Complete
+  let frequencies = new Map();
+  //split text into word
+  text
+    .split(/\s/)
+    .filter((word) => word.lenght)
+    .forEach((word) => {
+      if (!frequencies.has(word)) {
+        frequencies.set(word, 1);
+      } else {
+        frequencies.set(word, frequencies.get(word) + 1);
+      }
+    });
+
+  return Array.from(frequencies).sort((a, b) => (a[1] > b[1] ? -1 : 1));
 };
 
 const text = `Las empresas tecnológicas tienen ante ellas un gran desafío encontrar talento preparado para hacer frente a sus retos 
